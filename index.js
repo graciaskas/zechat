@@ -20,10 +20,14 @@ io.on("connection", function(socket){
     socket.on("ping",function(data){
         console.log(data)
     });
-    //Emit to all sockets
-    io.sockets.emit("message",{
-        message : "I love you"
+
+    socket.on("message", function(message){
+        //Emit to all sockets
+        io.sockets.emit("message_client",{
+            message
+        });
     });
+   
 });
 
 app.use(express.static("client"))

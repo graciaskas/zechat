@@ -157,18 +157,29 @@ body {
     overflow-y: auto;
 }
 
-.chat-message.sender {
-    float: left;
-}
-.chat-message.receiver {
-    float: right;
-}
+
 .chat-message {
-    max-width: 300px;
     margin-bottom: 10px;
     width: auto;
     display: flex;
-    justify-content: space-between;
+    height: auto;
+}
+.chat-message .image {
+    width: 25px;
+    height: 25px;
+    border-radius: 30px;
+    margin-right: 5px;
+    overflow: hidden;
+}
+
+
+.chat-message.sender {
+    float: left;
+    clear: both;
+}
+.chat-message.receiver {
+    float: right;
+    clear: both;
 }
 
 .chat-message .message {
@@ -176,6 +187,7 @@ body {
     font-size: 13px;
     padding: 10px;
     border-radius: 20px;
+    max-width: 300px;
 }
 .chat-message.sender .message {
     background: var(--blue);
