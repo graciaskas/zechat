@@ -15,20 +15,38 @@ const io = Socket(server, {
     }
 });
 
+const users = [];
+
 io.on("connection", function(socket){
-    // Get ping event
-    socket.on("ping",function(data){
-        console.log(data)
+    /** On new user addition event */
+    socket.on("addUser", function(user){
+        //Set socket user to new user
+        socket.user = user;
+        // add new user
+        users.push(user);
+        //emit users to all sockets
+        io.sockets.emit("users",users);
     });
 
+    /** On new message  event */
     socket.on("message", function(message){
         //Emit to all sockets
         io.sockets.emit("message_client",{
-            message
+            message,
+            user : socket.user
         });
     });
-   
+
+    /** When user is disconnected */
+    socket.on("disonnect", function(){
+        if(socket.user){
+            users.splice(users.indexOf(socket.user,1));
+            io.sockets.emit("users",users);
+        }
+    });
+
 });
+
 
 app.use(express.static("client"))
 

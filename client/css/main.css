@@ -34,6 +34,22 @@ body {
     width: 95%;
     margin: auto; 
 }
+.d-none {
+    display: none !important;
+}
+.d-block {
+    display: block !important;
+}
+.t-white {
+    color: var(--white) !important;
+}
+.b-blue { 
+    background: var(--blue) !important;
+}
+.btn {
+    border: 2px solid transparent !important;
+    cursor: pointer;
+}
 
 .section__header { 
     padding: 10px 0px;
@@ -56,6 +72,7 @@ body {
     text-decoration: none;
     text-transform: capitalize;
 }
+
 
 .section__main {
     display: flex;
@@ -229,4 +246,32 @@ body {
     height: 100vh;
     padding: 15px 10px;
     border-left: 1px solid var(--border-gray);
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0,0,0.4);
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    z-index: 10;
+}
+
+.modal_body {
+    background: #fff;
+    width: 35%;
+    margin: 5% auto;
+    padding: 20px;
+    display: block;
+    border-radius: 5px;
+}
+.modal_body input,
+.modal_body button{
+    width: 100%;
+    padding: 7px 15px;
+    border-radius: 5px;
+    margin: 5px 0px;
+    border: 2px solid #eceaea;
 }
